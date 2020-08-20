@@ -1,16 +1,14 @@
 from django.shortcuts import render, HttpResponse
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from miapp.models import cursos, carreras
-
+from miapp.models import cursos, carreras , estudiantes
 
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
     
-def estudiantes(request):
-    return render(request, 'estudiantes.html')
+
 def consultas(request):
     return render(request, 'consultas.html')
 
@@ -41,3 +39,17 @@ def eliminar_carreras(request, id):
     carr.delete()
 
     return redirect('carreras')
+
+def listar_estudiantes(request):
+    alumno = estudiantes.objects.all()
+    
+    return render(request, 'estudiantes.html',{
+        'estudiantes': alumno,
+        'titulo': 'Listado de estudiantes'
+    })
+
+def eliminar_estudiante(request, id):
+    alumno=estudiantes.objects.get(pk=id)
+    alumno.delete()
+
+    return redirect('Estudiantes')

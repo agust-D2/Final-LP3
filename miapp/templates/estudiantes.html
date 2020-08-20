@@ -1,7 +1,32 @@
 {% extends 'layout.html' %}
 
+{% block title %}
+    {{titulo}}
+{% endblock%}
 {% block content %}
 
-<h1>Listado de estudiantes</h1>
 
-{% endblock %}
+
+    <h1 class="title">{{titulo}}</h1>
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li>
+            <h4>{{estudiante.idestudiante}}- {{estudiante.apellidos}}, {{estudiante.nombre}} </h4>
+            <span>Codigo: {{estudiante.codigo}}</span><br>
+            <span>Dni: {{estudiante.dni}}</span><br>
+            <span>Direccion: {{estudiante.direccion}}</span><br>
+            <span>Fecha de nacimiento: {{estudiante.fecha_nacimiento}}</span><br>
+
+            {% if estudiante.estado == 'A' %}
+                <strong>Activo</strong>
+            {% else %} 
+                <strong>Inactivo</strong>
+            {% endif %}
+            <br><p>
+            <a href="{% url 'eliminar_estudiante' id=estudiante.idestudiante %}">eliminar</a>
+            </p>
+        </li>
+        {%endfor%}
+
+    </ul>
+{% endblock%}

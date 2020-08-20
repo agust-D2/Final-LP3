@@ -23,10 +23,11 @@ urlpatterns = [
     path('inicio/', views.index, name="inicio"),
     path('cursos/', views.listar_cursos, name="cursos"),
     path('carreras/',views.listar_carreras, name="carreras"),
-    path('Estudiantes/',views.estudiantes, name="Estudiantes"),
+    path('Estudiantes/',views.listar_estudiantes, name="Estudiantes"),
     path('Consultas/',views.consultas, name="Consultas"),
     path('eliminar-cursos/<int:id>',views.eliminar_cursos, name="eliminar_cursos"),
     path('eliminar-carreras/<int:id>',views.eliminar_carreras, name="eliminar_carreras"),
+    path('eliminar-estudiante/<int:id>',views.eliminar_estudiante, name="eliminar_estudiante"),
 
 
 ]

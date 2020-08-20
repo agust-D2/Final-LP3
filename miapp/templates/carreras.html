@@ -1,8 +1,28 @@
 {% extends 'layout.html' %}
 
-
-
+{% block title %}
+    {{titulo}}
+{% endblock%}
 {% block content %}
-<h1>Listado de carreras</h1>
 
+    <h1 class="title">{{titulo}}</h1>
+    <ul>
+        {% for carreras in carrera %}
+        <li>
+            <h4>{{carreras.idcarrera}}-{{carreras.nombre}}</h4>
+            <span>Nombrecorto: {{carreras.nombrecorto}}</span><br>
+            <span>Fecha_fundación: {{carreras.fecha_fundacion}} </span><br>
+
+            {% if carreras.estado == 'A' %}
+                <strong>Activo</strong>
+            {% else %} 
+                <strong>Inactivo</strong>
+            {% endif %}
+            <br><p>
+            <a href="{% url 'eliminar_carreras' id=carreras.idcarrera %}">Eliminar</a>
+            </p>
+        </li>
+        {%endfor%}
+
+    </ul>
 {% endblock %}

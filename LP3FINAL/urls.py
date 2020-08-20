@@ -22,10 +22,11 @@ urlpatterns = [
     path('',views.index, name="index"),
     path('inicio/', views.index, name="inicio"),
     path('cursos/', views.listar_cursos, name="cursos"),
-    path('Carreras/',views.carreras, name="Carreras"),
+    path('carreras/',views.listar_carreras, name="carreras"),
     path('Estudiantes/',views.estudiantes, name="Estudiantes"),
     path('Consultas/',views.consultas, name="Consultas"),
     path('eliminar-cursos/<int:id>',views.eliminar_cursos, name="eliminar_cursos"),
+    path('eliminar-carreras/<int:id>',views.eliminar_carreras, name="eliminar_carreras"),
 
 
 ]

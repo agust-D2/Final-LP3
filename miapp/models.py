@@ -10,5 +10,12 @@ class cursos(models.Model):
     creditos = models.IntegerField()
     estados = models.CharField(max_length=1)  
 
+class carreras(models.Model):
+    idcarrera = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100)
+    nombrecorto = models.CharField(max_length=10)
+    fecha_fundacion = models.CharField(max_length=20)
+    estado = models.CharField(max_length=1)
+
 
 

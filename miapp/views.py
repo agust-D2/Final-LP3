@@ -2,15 +2,18 @@ from django.shortcuts import render, HttpResponse
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from miapp.models import cursos, carreras , estudiantes
+from django.shortcuts import render
+from .forms import consultar
 
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
     
-
 def consultas(request):
-    return render(request, 'consultas.html')
+    form = consultar()
+
+    return render(request, 'consultas.html', {'form': form})
 
 def listar_cursos(request):
     curso = cursos.objects.all()

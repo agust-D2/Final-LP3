@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="utf-8" />
+    <head>
+        <meta charset="utf-8" />
 
-    <title>
-        {% block title %}
+        <title>
+            {% block title %}
 
-        {% endblock %}
-        | FinalLp3
-    </title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-</head>
+            {% endblock %}
+            | FinalLp3
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    </head>
 
-<body>
-    <header>
-        <div >
-            
-            <h1>Examen final LP3</h1>
+    <body>
+        <header>
+            <div id="logo_untels">
+                <img src="{%static 'images/logo_untels.png'%}"/>
+                <h1>Examen final LP3</h1>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'inicio' %}"> Inicio</a>
+                </li>
+                <li>
+                    <a href="{% url 'cursos' %}">Cursos</a>
+                </li>
+                <li>
+                    <a href="{% url 'Estudiantes' %}"> Estudiantes </a>
+                </li>
+                <li>
+                    <a href="{% url 'carreras' %}"> Carreras </a>
+                </li>
+                <li>
+                    <a href="{% url 'Consultas' %}"> Consultas</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div id="content">
+            <div class="box">
+            {% block content %}
+            {% endblock %}
+            </div>
+
         </div>
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="{% url 'inicio' %}"> Inicio</a>
-            </li>
-            <li>
-                <a href="{% url 'cursos' %}">Cursos</a>
-            </li>
-            <li>
-                <a href="{% url 'Estudiantes' %}"> Estudiantes </a>
-            </li>
-            <li>
-                <a href="{% url 'carreras' %}"> Carreras </a>
-            </li>
-            <li>
-                <a href="{% url 'Consultas' %}"> Consultas</a>
-            </li>
-            
-        </ul>
-    </nav>
-    
-    <div >
-        <div >
-          {% block content %}
-          
-{% endblock %}
-            
-        </div>
-
-    </div>
-    <footer>
-        UNTELS - Lenguaje de Programación III &COPY; Examen final - {% now "d/m/Y" %}
-    </footer>
+        <footer>
+            UNTELS - Lenguaje de Programación III &COPY; Examen final - {% now "d/m/Y" %}
+        </footer>
 
 
-</body>
+    </body>
 
 </html>

@@ -1,6 +1,17 @@
 {% extends 'layout.html' %}
 
+{% block title %}
+    Formulario en DJango
+{% endblock %}
 {% block content %}
-<h1>Consultas y comentarios</h1>
+
+    <h1 class="title">Formulario en Django</h1>
+    <form action="/create-articulo/" method="POST" id="form1">
+        
+        {% csrf_token %}
+        {{ form }}
+         <button type="submit" form="form1" value="Submit">Enviar</button>
+        
+    </form>
 
 {% endblock %}

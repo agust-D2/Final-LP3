@@ -1,6 +1,29 @@
 {% extends 'layout.html' %}
 
+{% block title %}
+    {{titulo}}
+{% endblock%}
 {% block content %}
-<h1>Listado de cursos</h1>
 
+    <h1 class="title">{{titulo}}</h1>
+    <ul>
+        {% for cursos in cursos %}
+        <li>
+            <h4>{{cursos.idcurso}}-{{cursos.nombre}}</h4>
+            <span>Codigo: {{cursos.codigo}}</span><br>
+            <span>Creditos: {{cursos.creditos}}</span><br>
+            <span>Horas: {{cursos.horas}} horas</span><br>
+
+            {% if cursos.estado == 'A' %}
+                <strong>Activo</strong>
+            {% else %} 
+                <strong>Inactivo</strong>
+            {% endif %}
+            <br><p>
+            <a href="{% url 'eliminar_cursos' id=cursos.idcurso %}">eliminar</a>
+            </p>
+        </li>
+        {%endfor%}
+
+    </ul>
 {% endblock %}
